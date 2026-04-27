@@ -1,0 +1,99 @@
+\documentclass[12pt,a4paper]{article}
+
+% --- Paquetes de Idioma y Formato ---
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{amsmath}
+
+% --- Configuración de colores para el código MATLAB ---
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.97,0.97,0.95}
+
+\lstset{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=Matlab,
+    frame=single
+}
+
+\begin{document}
+
+% --- Portada ---
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\Huge \textbf{Informe de Programación}} \\
+    \vspace{0.5cm}
+    {\Large Algoritmo de Verificación de Números Primos} \\
+    \vspace{2cm}
+    \textbf{Materia:} [Nombre de la Materia] \\
+    \textbf{Autor:} [Tu Nombre] \\
+    \vfill
+    \textbf{Fecha:} \today
+\end{titlepage}
+
+\section{Introducción}
+El presente documento detalla la implementación de un script en el entorno MATLAB diseñado para identificar números primos y generar secuencias numéricas descendentes. El objetivo es proporcionar una herramienta sencilla pero robusta para el análisis básico de números naturales.
+
+\section{Metodología y Funciones}
+Para la detección de números primos, se ha utilizado la función integrada de MATLAB \texttt{isprime(n)}. Esta función utiliza algoritmos de primalidad que retornan un valor booleano ($1$ para verdadero, $0$ para falso). 
+
+Adicionalmente, se emplea el operador de dos puntos (\texttt{:}) para la creación de vectores decrementales, permitiendo listar los números anteriores al valor ingresado de forma eficiente.
+
+\section{Código Fuente}
+A continuación se presenta la implementación final del script:
+
+\begin{lstlisting}[language=Matlab, caption=Script de detección de primos y cuenta regresiva]
+% 1. Solicitar el número al usuario
+n = input('Introduce un número entero: ');
+
+% 2. Verificación de primalidad
+if isprime(n)
+    fprintf('El número %d es PRIMO.\n', n);
+else
+    fprintf('El número %d NO es primo.\n', n);
+end
+
+% 3. Lógica para mostrar números anteriores
+if n > 1
+    fprintf('Números anteriores: ');
+    % Creamos el vector descendente de n-1 hasta 1
+    anteriores = (n-1):-1:1; 
+    fprintf('%d ', anteriores);
+    fprintf('\n');
+else
+    fprintf('No hay números naturales anteriores a %d.\n', n);
+end
+\end{lstlisting}
+
+\section{Recomendaciones de Uso}
+Para garantizar el correcto funcionamiento y la legibilidad del código, se sugieren las siguientes prácticas:
+\begin{itemize}
+    \item \textbf{Validación:} Asegurarse de que el valor ingresado sea un número entero positivo para evitar errores en la función \texttt{isprime}.
+    \item \textbf{Documentación:} Mantener los comentarios en el código para facilitar el mantenimiento por parte de otros usuarios.
+    \item \textbf{Formato en LaTeX:} Utilizar el paquete \texttt{listings} (como se muestra en este informe) para que el código sea legible y profesional en documentos impresos.
+\end{itemize}
+
+\section{Conclusión}
+El programa cumple con los requisitos planteados, demostrando la versatilidad de MATLAB para el manejo de lógica condicional y estructuras de datos simples como los vectores.
+
+\end{document}

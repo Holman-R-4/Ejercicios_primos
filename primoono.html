@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Informe: Verificación de Primos y Secuencias</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        header {
+            border-bottom: 3px solid #0076a8;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        h1 { color: #0076a8; margin-bottom: 10px; }
+        h2 { color: #2c3e50; margin-top: 30px; border-left: 5px solid #0076a8; padding-left: 10px; }
+        
+        /* Simulación de Interfaz */
+        .interface-box {
+            background-color: #eef2f7;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px dashed #0076a8;
+            margin: 20px 0;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+        input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 120px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #d45d00; /* Color corporativo de MATLAB */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        /* Código MATLAB */
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: 'Consolas', monospace;
+        }
+        .keyword { color: #66d9ef; }
+        .string { color: #e6db74; }
+        .comment { color: #75715e; }
+
+        .example-box {
+            background-color: #fff3e0;
+            padding: 15px;
+            border-left: 5px solid #ff9800;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Informe Técnico: Análisis de Números</h1>
+        <p>Implementación de lógica de primalidad y sucesiones decrecientes</p>
+    </header>
+
+    <section>
+        <h2>1. Simulación de la Interfaz</h2>
+        <p>Este es el diseño propuesto para la captura de datos. En un entorno de producción, este formulario enviaría el valor $n$ al motor de cálculo.</p>
+        
+        <div class="interface-box">
+            <div class="input-group">
+                <label for="num">Número a evaluar:</label>
+                <input type="number" id="num" placeholder="Ej: 5">
+                <button>Ejecutar en MATLAB</button>
+            </div>
+        </div>
+        <p><em>*Nota: Al ser HTML puro, el botón no procesará el número, pero representa el flujo de trabajo del usuario.</em></p>
+    </section>
+
+    <section>
+        <h2>2. Lógica y Código de MATLAB</h2>
+        <p>Para determinar si un número $n$ es primo y obtener sus predecesores, utilizamos la función <code>isprime</code> y el operador de rango <code>:</code>.</p>
+        
+        <pre>
+<span class="comment">% --- Script de Verificación de Números ---</span>
+
+<span class="keyword">n</span> = input(<span class="string">'Introduce el número: '</span>);
+
+<span class="comment">% Verificamos si es primo</span>
+<span class="keyword">if</span> isprime(n)
+    fprintf(<span class="string">'El número %d es PRIMO\n'</span>, n);
+<span class="keyword">else</span>
+    fprintf(<span class="string">'El número %d NO es primo\n'</span>, n);
+<span class="keyword">end</span>
+
+<span class="comment">% Generamos la cuenta regresiva</span>
+<span class="keyword">if</span> n > 1
+    anteriores = (n-1):-1:1;
+    fprintf(<span class="string">'Números anteriores: '</span>);
+    disp(anteriores);
+<span class="keyword">end</span>
+        </pre>
+    </section>
+
+    <section>
+        <h2>3. Ejemplo de Ejecución</h2>
+        <div class="example-box">
+            <strong>Entrada:</strong> $n = 5$ <br>
+            <strong>Salida esperada:</strong> <br>
+            "El número 5 es PRIMO" <br>
+            "Números anteriores: 4 3 2 1"
+        </div>
+    </section>
+
+    <footer>
+        <hr>
+        <p style="text-align: center; font-size: 0.9em; color: #777;">
+            Informe generado para la asignatura de Computación Numérica.
+        </p>
+    </footer>
+</div>
+
+</body>
+</html>
